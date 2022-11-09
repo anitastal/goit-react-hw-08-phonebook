@@ -16,7 +16,7 @@ export const Registration = () => {
   //     repeatPassword: setRepeatPassword,
   //   };
 
-  //   const getDataInput = e => {
+  //   const getDataRegInput = e => {
   //     inputs[e.target.name](e.target.value);
   //   };
 
@@ -85,7 +85,7 @@ export const Registration = () => {
           type="password"
         />
       </label>
-      <button type="submit">Log In</button>
+      <button type="submit">Registration</button>
     </form>
   );
 };
