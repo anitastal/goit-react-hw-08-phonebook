@@ -1,0 +1,10 @@
+.img{
+    height: 80vh;
+    background-image: url(../../welcome.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: relative;
+    left: 10%;
+    
+    
+}

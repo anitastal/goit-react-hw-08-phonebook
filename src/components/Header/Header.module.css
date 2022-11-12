@@ -1,0 +1,29 @@
+.nav{
+    text-decoration: none;
+    font-size: 25px;
+    font-weight: 700;
+    color: black;
+    font-style: italic;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.list{
+    text-decoration: none;
+    font-size: 25px;
+    font-weight: 700;
+    color: black;
+    font-style: italic;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+}
+.item{
+    list-style: none;
+}

@@ -1,24 +1,23 @@
 import UserMenu from 'components/UserMenu/UserMenu';
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-// import { logOutForm } from 'redux/auth/authOperation';
+
 import { getIsLoggedIn } from 'redux/selectors';
+import css from './Header.module.css';
 
 export const Header = () => {
-  // const dispatch = useDispatch();
-
   const isLoggedIn = useSelector(getIsLoggedIn);
 
   return (
     <header>
-      <nav>
+      <nav className={css.nav}>
         <NavLink to="/">Home</NavLink>
         {!isLoggedIn && (
-          <ul>
-            <li>
+          <ul className={css.list}>
+            <li className={css.item}>
               <NavLink to="/register">Registration</NavLink>
             </li>
-            <li>
+            <li className={css.item}>
               <NavLink to="/login">Authorization</NavLink>
             </li>
           </ul>

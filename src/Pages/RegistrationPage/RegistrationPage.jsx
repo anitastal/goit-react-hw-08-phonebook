@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { registationForm } from 'redux/auth/authOperation';
-// import { useDispatch } from 'react-redux';
+import css from './Registration.module.css';
 
 export const Registration = () => {
   const [name, setName] = useState('');
@@ -56,10 +56,11 @@ export const Registration = () => {
   };
 
   return (
-    <form onSubmit={handleFormSubmit}>
-      <label>
+    <form onSubmit={handleFormSubmit} className={css.form}>
+      <label className={css.label}>
         Enter Your Name
         <input
+          className={css.input}
           required
           onChange={getDataInput}
           name="name"
@@ -67,9 +68,10 @@ export const Registration = () => {
           type="text"
         />
       </label>
-      <label>
+      <label className={css.label}>
         Enter Your Email
         <input
+          className={css.input}
           required
           onChange={getDataInput}
           name="email"
@@ -77,9 +79,10 @@ export const Registration = () => {
           type="email"
         />
       </label>
-      <label>
+      <label className={css.label}>
         Enter Your Password
         <input
+          className={css.input}
           required
           onChange={getDataInput}
           name="password"
@@ -87,9 +90,10 @@ export const Registration = () => {
           type="password"
         />
       </label>
-      <label>
+      <label className={css.label}>
         Repeat Password
         <input
+          className={css.input}
           required
           onChange={getDataInput}
           name="repeatPassword"
@@ -97,7 +101,9 @@ export const Registration = () => {
           type="password"
         />
       </label>
-      <button type="submit">Registration</button>
+      <button type="submit" className={css.btn}>
+        Registration
+      </button>
     </form>
   );
 };

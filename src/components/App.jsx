@@ -1,7 +1,8 @@
 import { PhoneBookPage } from 'Pages/ContactPage';
+import { HomePage } from 'Pages/HomePage/HomePage';
 
-import { Login } from 'Pages/LogInPage';
-import { Registration } from 'Pages/RegistrationPage';
+import { Login } from 'Pages/LoginPage/LogInPage';
+import { Registration } from 'Pages/RegistrationPage/RegistrationPage';
 import { Suspense, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
@@ -20,21 +21,24 @@ export const App = () => {
 
   return (
     <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'flex-start',
-        alignItems: 'center',
-        fontSize: 16,
-        color: '#010101',
-        gap: 10,
-      }}
+    // style={{
+    //   height: '100vh',
+    //   padding: '20px',
+    //   //   // display: 'flex',
+    //   //   // flexDirection: 'row',
+    //   //   // justifyContent: 'flex-start',
+    //   //   // alignItems: 'center',
+    //   //   // fontSize: 16,
+    //   //   // color: '#010101',
+    //   //   // gap: 10,
+
+    //   // backgroundColor: '#a4dfa4',
+    // }}
     >
       <Layout>
         <Suspense>
           <Routes>
-            {/* <Route path="/" element={<HomePage />}> */}
+            <Route path="/" element={<HomePage />} />
             <Route path="/" element={<PublicRoute />}>
               <Route path="/register" element={<Registration />} />
               <Route path="/login" element={<Login />} />

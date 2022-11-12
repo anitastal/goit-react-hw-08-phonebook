@@ -2,6 +2,7 @@ import { nanoid } from 'nanoid';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setContactsData } from 'redux/operations/operation';
+import css from './Phonebook.module.css';
 
 export const Phonebook = () => {
   const dispatch = useDispatch();
@@ -32,9 +33,11 @@ export const Phonebook = () => {
 
   return (
     <div>
-      <form onSubmit={handleAddContact}>
-        <label>Name</label>
+      <h2 className={css.title}>Add your contact</h2>
+      <form onSubmit={handleAddContact} className={css.form}>
+        <label className={css.label}>Name</label>
         <input
+          className={css.input}
           type="text"
           name="name"
           value={name}
@@ -43,8 +46,9 @@ export const Phonebook = () => {
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
           required
         />
-        <label>Number</label>
+        <label className={css.label}>Number</label>
         <input
+          className={css.input}
           type="tel"
           name="number"
           value={number}
@@ -53,7 +57,9 @@ export const Phonebook = () => {
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
           required
         />
-        <button type="submit">Add contact</button>
+        <button type="submit" className={css.btn}>
+          Add contact
+        </button>
       </form>
     </div>
   );

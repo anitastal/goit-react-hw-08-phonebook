@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { logInForm } from 'redux/auth/authOperation';
-
+import css from './LoginPage.module.css';
 export const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -25,10 +25,11 @@ export const Login = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
+    <form onSubmit={handleSubmit} className={css.form}>
+      <label className={css.label}>
         Enter Your Email
         <input
+          className={css.input}
           required
           onChange={getDataLoginInput}
           name="email"
@@ -36,9 +37,10 @@ export const Login = () => {
           type="email"
         />
       </label>
-      <label>
+      <label className={css.label}>
         Enter Your Password
         <input
+          className={css.input}
           required
           onChange={getDataLoginInput}
           name="password"
@@ -46,7 +48,9 @@ export const Login = () => {
           type="password"
         />
       </label>
-      <button type="submit">Log In</button>
+      <button type="submit" className={css.btn}>
+        Log In
+      </button>
     </form>
   );
 };
