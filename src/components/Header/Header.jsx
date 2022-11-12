@@ -11,7 +11,9 @@ export const Header = () => {
   return (
     <header>
       <nav className={css.nav}>
-        <NavLink to="/">Home</NavLink>
+        <NavLink end to="/">
+          Home
+        </NavLink>
         {!isLoggedIn && (
           <ul className={css.list}>
             <li className={css.item}>
@@ -26,6 +28,9 @@ export const Header = () => {
       {isLoggedIn && (
         <>
           <UserMenu />
+          <NavLink to="/contacts" className={css.text}>
+            Contacts
+          </NavLink>
         </>
       )}
     </header>

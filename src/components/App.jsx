@@ -20,21 +20,7 @@ export const App = () => {
   }, [dispatch]);
 
   return (
-    <div
-    // style={{
-    //   height: '100vh',
-    //   padding: '20px',
-    //   //   // display: 'flex',
-    //   //   // flexDirection: 'row',
-    //   //   // justifyContent: 'flex-start',
-    //   //   // alignItems: 'center',
-    //   //   // fontSize: 16,
-    //   //   // color: '#010101',
-    //   //   // gap: 10,
-
-    //   // backgroundColor: '#a4dfa4',
-    // }}
-    >
+    <div>
       <Layout>
         <Suspense>
           <Routes>
@@ -47,7 +33,6 @@ export const App = () => {
               <Route path="/contacts" element={<PhoneBookPage />} />
             </Route>
           </Routes>
-          {/* <ToastContainer /> */}
         </Suspense>
       </Layout>
     </div>
