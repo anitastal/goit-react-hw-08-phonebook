@@ -4,6 +4,8 @@ export const getFilteredContacts = state =>
   );
 export const getFilter = state => state.filter.filter;
 
+export const getIsLoggedIn = state => state.auth.isLoggedIn;
+
 export const Status = {
   init: 'INIT',
   loading: 'LOADING',

@@ -1,19 +1,21 @@
-import { Login } from 'Pages/AuthorizationPage';
+import { PhoneBookPage } from 'Pages/ContactPage';
+
+import { Login } from 'Pages/LogInPage';
 import { Registration } from 'Pages/RegistrationPage';
-import { useEffect } from 'react';
+import { Suspense, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
-import { getContactsData } from 'redux/operations/operation';
-import { ContactList } from './ContactList/ContactList';
-import { Filter } from './Filter/Filter';
+import { getUser } from 'redux/auth/authOperation';
+
 import { Layout } from './Layout/Layout';
-import { Phonebook } from './Phonebook';
+import PublicRoute from './PablicRoutes/PablicRoutes';
+import { PrivateRoutes } from './PrivateRoutes/PrivateRoutes';
 
 export const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getContactsData());
+    dispatch(getUser());
   }, [dispatch]);
 
   return (
@@ -30,18 +32,19 @@ export const App = () => {
       }}
     >
       <Layout>
-        <Routes>
-          <Route path="/register" element={<Registration />} />
-          <Route path="/login" element={<Login />} />
-          {/* <Route path="/contacts" element={<Phonebook />} /> */}
-        </Routes>
-
-        <h1>Phonebook</h1>
-        <Phonebook />
-        <h2>Contacts</h2>
-        <Filter />
-
-        <ContactList />
+        <Suspense>
+          <Routes>
+            {/* <Route path="/" element={<HomePage />}> */}
+            <Route path="/" element={<PublicRoute />}>
+              <Route path="/register" element={<Registration />} />
+              <Route path="/login" element={<Login />} />
+            </Route>
+            <Route path="/" element={<PrivateRoutes />}>
+              <Route path="/contacts" element={<PhoneBookPage />} />
+            </Route>
+          </Routes>
+          {/* <ToastContainer /> */}
+        </Suspense>
       </Layout>
     </div>
   );

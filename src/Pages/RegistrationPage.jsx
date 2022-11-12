@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { registationForm } from 'redux/auth/authOperation';
 // import { useDispatch } from 'react-redux';
 
 export const Registration = () => {
@@ -7,7 +9,7 @@ export const Registration = () => {
   const [password, setPassword] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
 
-  //   const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   //   const inputs = {
   //     name: setName,
@@ -42,7 +44,17 @@ export const Registration = () => {
 
   const handleFormSubmit = e => {
     e.preventDefault();
+    if (password === repeatPassword) {
+      dispatch(registationForm({ name, email, password, repeatPassword }));
+    } else {
+      alert('Passwords do not match');
+    }
+    setName('');
+    setEmail('');
+    setPassword('');
+    setRepeatPassword('');
   };
+
   return (
     <form onSubmit={handleFormSubmit}>
       <label>
@@ -80,7 +92,7 @@ export const Registration = () => {
         <input
           required
           onChange={getDataInput}
-          name="repPassword"
+          name="repeatPassword"
           value={repeatPassword}
           type="password"
         />
